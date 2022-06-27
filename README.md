@@ -13,13 +13,13 @@ X11 (will not work on Wayland)
 
 
 ## Setup
-* Make script run anywhere: sudo $ ln -s scrpt /usr/local/bin/scrpt
+* Make script run anywhere: sudo $ ln -s $HOME/.../script /usr/local/bin/script
 * Make the script a keyboard shortcut...(ctrl+alt+c)
 * You may want to alias xdoclip: .bashrc alias dc="xdoclip" or "xdoclip sw"
 
 ## Usage
 abbreviated to "dc" (do clip) for convience 
-* $ xdoclip sw -> set the current window as target for copy/paste
+* $ xdoclip s -> set the current window as target for copy/paste
 * move mouse text, run shorcut -> this copies the line and pastes to terminal
 
 Run "$ xdoclip test" to test the set window if desired before pasting, this should input "test"

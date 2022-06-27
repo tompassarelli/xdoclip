@@ -7,7 +7,7 @@ PASTE="xdotool keydown Control keydown Shift key v keyup Control keyup Shift"
 test -f "$DB" || touch "$DB"
 read -r windowId < "$DB"
 
-if [ "$1" == "sw" ];
+if [ "$1" == "s" ];
 then
   xdotool getactivewindow > "$DB"
   exit 1
