@@ -1,7 +1,8 @@
 A simple script in which you may set a window for quick copy and pasting.
 
 I found it tiresome to copy shell commands from firefox, find the terminal, and paste them in.
-This script reduces that noise to a hotkey! 
+
+This script reduces that noise to 1 hotkey! 
 
 ## Dependencies
 
