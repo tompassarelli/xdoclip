@@ -15,7 +15,7 @@ X11 (will not work on Wayland)
 ## Setup
 * Make script run anywhere: sudo $ ln -s $HOME/.../script /usr/local/bin/script
 * Make the script a keyboard shortcut...(ctrl+alt+c)
-* You may want to alias xdoclip: .bashrc alias dc="xdoclip" or "xdoclip sw"
+* You may want to alias xdoclip: .bashrc alias dc="xdoclip" or "xdoclip s"
 
 ## Usage
 abbreviated to "dc" (do clip) for convience 
