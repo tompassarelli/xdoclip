@@ -6,12 +6,14 @@ This script reduces that noise to a hotkey!
 
 ## Dependencies
 
-[xdotool](https://github.com/jordansissel/xdotool))
+X11 (will not work on Wayland)
+
+[xdotool](https://github.com/jordansissel/xdotool)
 [xclip](https://github.com/astrand/xclip)
 
 
 ## Setup
-* Make script run anywhere: sudo $ ln -s <scrpt> /usr/local/bin/<scrpt>
+* Make script run anywhere: sudo $ ln -s scrpt /usr/local/bin/scrpt
 * Make the script a keyboard shortcut...(ctrl+alt+c)
 * You may want to alias xdoclip: .bashrc alias dc="xdoclip" or "xdoclip sw"
 
