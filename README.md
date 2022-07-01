@@ -30,7 +30,7 @@ wayland would need alternative for xclip/xsel for copying clipboard
 * You may want to alias xdoclip: .bashrc alias dc="xdoclip -s"
 
 ## Usage
-* move mouse text, run shorcut -> this copies the line and pastes to terminal
+* move mouse text (or select text if not using LINE_MODE), run shorcut -> this copies the line and pastes to terminal
 
 Line Mode
 
