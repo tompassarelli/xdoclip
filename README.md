@@ -8,7 +8,9 @@ This script reduces that noise to 1 hotkey!
 ## Dependencies
 
 X11 (will not work on Wayland)
+
 almost works on wayland now with ydotool using alt tab mode
+
 wayland would need alternative for xclip/xsel for copying clipboard
 
 [xdotool](https://github.com/jordansissel/xdotool) or [ydotool](https://github.com/ReimuNotMoe/ydotool/)
