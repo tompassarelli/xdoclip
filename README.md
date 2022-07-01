@@ -6,20 +6,23 @@ This script reduces that noise to 1 hotkey!
 
 ## Dependencies
 
-X11 (will not work on Wayland)
+~X11 (will not work on Wayland)~
+works on wayland now with ydotool using alt tab mode
 
-[xdotool](https://github.com/jordansissel/xdotool)
+[xdotool](https://github.com/jordansissel/xdotool) or [ydotool](https://github.com/ReimuNotMoe/ydotool/)
+
 [xclip](https://github.com/astrand/xclip)
 
 
 ## Setup
 * Make script run anywhere: sudo $ ln -s $HOME/.../script /usr/local/bin/script
-* Make the script a keyboard shortcut...(ctrl+alt+c)
-* You may want to alias xdoclip: .bashrc alias dc="xdoclip" or "xdoclip s"
+* Make the script a keyboard shortcut...(ex. ctrl+alt+c)
+* You may want to alias xdoclip: .bashrc alias dc="xdoclip" or "xdoclip -s"
+* for ydotool, set a env var YDOTOOL_SOCKET="/tmp/.ydotool.socket" & ydotool run as non-elevated user for hotkey... see: https://github.com/ReimuNotMoe/ydotool/issues/36#issuecomment-788148567
 
 ## Usage
 abbreviated to "dc" (do clip) for convience 
-* $ xdoclip s -> set the current window as target for copy/paste
+* $ xdoclip -s -> set the current window as target for copy/paste
 * move mouse text, run shorcut -> this copies the line and pastes to terminal
 
 Run "$ xdoclip test" to test the set window if desired before pasting, this should input "test"

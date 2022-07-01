@@ -1,13 +1,52 @@
 #!/usr/bin/env bash
+INF="ydo" # select (xdo)tool or (ydo)tool interface for input
+sINF="xs" # TODO select (xs)el or (xc)lip interface
+# TODO include autohotkey's window sel dependency for use with ydotool
 LINE_MODE=1
-ALTTAB_MODE=0
-DB="/tmp/XDOCLIP-ID_DB.txt"
-PASTE="xdotool keydown Control keydown Shift key v keyup Control keyup Shift"
+ALTTAB_MODE=1
+DB="/tmp/WINDOW-ID_DB.txt"
+
+function copy () {
+	if [ $INF == "ydo" ] 
+	then
+	ydotool key 97:1 46:1 97:0 46:0
+	else 
+	xdotool keydown Control key c keyup Control
+	fi
+}	
+
+function paste () {
+	if [ $INF == "ydo" ] 
+	then
+	ydotool key 97:1 42:1 47:1 97:0 42:0 47:0
+	else 
+	xdotool keydown Control keydown Shift key v keyup Control keyup Shift
+	fi
+}	
+
+function triple_click () {
+	if [ $INF == "ydo" ] 
+	then
+	ydotool click 0xC0
+	ydotool click 0xC0
+	ydotool click 0xC0
+	else
+  	xdotool click 1 click 1 click 1
+	fi
+}	
+function alt_tab () {
+	if [ $INF == "ydo" ] 
+	then
+	ydotool key 56:1 15:1 56:0 15:0
+	else
+  	xdotool keydown Alt key Tab keyup Alt
+	fi
+}
 
 test -f "$DB" || touch "$DB"
 read -r windowId < "$DB"
 
-if [ "$1" == "s" ];
+if [ "$1" == "-s" ];
 then
   xdotool getactivewindow > "$DB"
   exit 1
@@ -16,7 +55,7 @@ fi
 #debug
 if [ "$1" == "test" ];
 then
-  echo "$windowId" > "/tmp/XDOCLIP-ID_TEXT.txt"
+  echo "$windowId" > "/tmp/WINDOW-ID_TEST.txt"
   xdotool windowactivate --sync "$windowId"
   xdotool type test 
   exit 1
@@ -26,22 +65,32 @@ fi
 #this is to ensure previously held keyboard shortcut doesn't interfere
 sleep 0.3
 
-if [ "$LINE_MODE" == "1" ];
+## SELECT
+if [ $LINE_MODE == "1" ];
 then
-  xdotool click 1 click 1 click 1
+	triple_click
 fi
 
-# copy and clean up possible "$ " in poor formatting
-xdotool keydown Control key c keyup Control
+## COPY
+# ... and clean up possible "$ " in poor formatting
+copy
 xclip -o -sel c | sed 's/\$//' | sed 's/^[ \t]*//' | xclip -sel c > /dev/null
 
-if [ "$ALTTAB_MODE" == "1" ];
+
+## SELECT TARGET WINDOW
+# by alt tab
+if [ $ALTTAB_MODE == "1" ];
 then
-  xdotool keydown Alt key Tab keyup Alt
-  sleep 0.2 # alt tab may require slight delay depending on app
-  $PASTE
-  exit 1
+	alt_tab
+	sleep 0.2 # alt tab may require slight delay depending on app
+	paste
+	exit 1
 fi
-# Default Paste To Set Window
-xdotool windowactivate --sync "$windowId"
-$PASTE
+# by windowid
+if [ $INF == "xdo" ];
+then 
+	xdotool windowactivate --sync "$windowId"
+fi
+
+## PASTE
+paste
