@@ -5,6 +5,8 @@ I found it tiresome to copy shell commands from firefox, find the terminal, and 
 
 This script reduces that noise to 1 hotkey! 
 
+![xdoclip](https://i.imgur.com/2kFvlez.gif)
+
 ## Dependencies
 
 X11 (will not work on Wayland)

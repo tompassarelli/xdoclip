@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 INF="ydo" # select (xdo)tool or (ydo)tool interface for input
-sINF="xs" # TODO select (xs)el or (xc)lip interface
-# TODO include autohotkey's window sel dependency for use with ydotool
 LINE_MODE=1
 ALTTAB_MODE=1
 DB="/tmp/WINDOW-ID_DB.txt"
@@ -65,7 +63,7 @@ fi
 #this is to ensure previously held keyboard shortcut doesn't interfere
 sleep 0.3
 
-## SELECT
+## SELECT | TODO I'm thinking to only fire this if primary clipboard has no linebreaks, indicating the user has not made a manual selection of a code block
 if [ $LINE_MODE == "1" ];
 then
 	triple_click
