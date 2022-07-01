@@ -21,17 +21,16 @@ wayland would need alternative for xclip/xsel for copying clipboard
 
 
 ## Setup
-* change interface to xdo or ydo depending on tool choice
-* Make script run anywhere: sudo $ ln -s $HOME/.../script /usr/local/bin/script
-* Make the script a keyboard shortcut...(ex. ctrl+alt+c)
-* You may want to alias xdoclip: .bashrc alias dc="xdoclip" or "xdoclip -s"
+* change interface to xdo or ydo depending on tool choice | default ydo
 * for ydotool, set a env var YDOTOOL_SOCKET="/tmp/.ydotool.socket" & ydotool run as non-elevated user for hotkey... see: https://github.com/ReimuNotMoe/ydotool/issues/36#issuecomment-788148567
 
-## Usage
-* $ xdoclip -s -> set the current window as target for copy/paste
-* move mouse text, run shorcut -> this copies the line and pastes to terminal
+(xdotool window bind specific, via ALTTAB_MODE=0)
+* Make script run anywhere: sudo $ ln -s $HOME/.../script /usr/local/bin/script
+* Make the script a keyboard shortcut...(ex. ctrl+alt+c)
+* You may want to alias xdoclip: .bashrc alias dc="xdoclip -s"
 
-Run "$ xdoclip test" to test the set window if desired before pasting, this should input "test"
+## Usage
+* move mouse text, run shorcut -> this copies the line and pastes to terminal
 
 Line Mode
 
