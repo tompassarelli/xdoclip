@@ -67,6 +67,7 @@ sleep 0.3
 if [ $LINE_MODE == "1" ];
 then
 	triple_click
+	wait
 fi
 
 ## COPY
@@ -80,7 +81,7 @@ xclip -o -sel c | sed 's/^\$//' | sed 's/^[ \t]*//' | xclip -sel c > /dev/null
 if [ $ALTTAB_MODE == "1" ];
 then
 	alt_tab
-	sleep 0.2 # alt tab may require slight delay depending on app
+	sleep 0.2
 	paste
 	exit 1
 fi
